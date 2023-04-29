@@ -1,0 +1,120 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    background: #ADA996;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(105, 90, 205, 0.486), #DBDBDB, #F2F2F2, #ADA996);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, rgba(105, 90, 205, 0.486), #ADA996);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+}
+
+main {
+    min-height: 100vh !important;
+}
+
+.content {
+    min-height: 400px !important;
+    margin: 100px 0;
+   
+    box-shadow: 0 14px 28px rgba(68, 58, 132, 0.425), 0 14px 128px rgba(68, 58, 132, 0.411);
+}
+
+.add {
+    background: slateblue !important;
+
+    button{
+        height: 40px !important;
+    }
+
+    li {
+        list-style-type: none;
+        a{
+            color: white;
+        }
+
+        i{
+            border-radius: 50%;
+        }
+    }
+}
+
+.show {
+    button {
+        font-size: 14px !important;
+        font-weight: 600;
+        color: slateblue;
+
+        &:hover {
+            color: white !important;
+            background: slateblue !important;
+        }
+    }
+}
+
+
+#list {
+    height: 250px !important;
+    overflow-y: scroll;
+
+    li {
+        height: 50px;
+        list-style-type: none;
+        border-bottom: 1px solid #DBDBDB;
+    }
+
+    * {
+        color: rgb(68, 58, 132);
+    }
+}
+
+#description {
+    box-shadow: 0 2px 3px rgb(68, 58, 132), 0 1px 1px rgb(68, 58, 132);
+    height: 60px !important;
+    color: rgb(68, 58, 132);
+}
+
+
+input {
+    &::placeholder {
+        color: #ADA996;
+    }
+
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 10px;
+    color: slateblue !important;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    // background-color: field;
+    margin: 0em;
+    height: 40px;
+    padding: 1px 2px;
+    border-width: 0px;
+    border-style: none;
+    outline: none !important;
+    border-image: initial;
+    border-radius: 10px;
+}
+
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 0px;
+    border-style: none;
+
+    border-image: initial;
+}

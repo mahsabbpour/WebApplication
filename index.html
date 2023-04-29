@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/master.css">
+</head>
+
+<body>
+
+    <main class="container-fluid container-xxl">
+<div class="container-fluid section1">
+    <div class="row justify-content-center px-0 mx-0">
+        <div class="col-10 content g-0">
+            <div class="row justify-content-center px-0 mx-0">
+                <div class="col-11 col-md-4  add">
+                    <div class="row  h-100 justify-content-center">
+                        <h4 class="h2 text-light text-center text-capitalize mt-3">add to list</h4>
+
+                        <input type="text" class="col-10 mt-4" placeholder="name">
+                        <input type="text" class="col-10 my-4" placeholder="score">
+
+                        <button type="button" id="add" class="col-7 btn btn-outline-light">add to list</button>
+
+
+
+                        <h2 class="text-light text-center text-capitalize mt-5">contact me</h2>
+
+                        <ul class="row col-10 px-0 mx-0 mb-4 justify-content-around">
+                            <li class="h-100 col-2"><a
+                                    class="w-100 h-100 d-flex align-items-center justify-content-center"
+                                    href="https://linkedin.com/in/mahsa-bbpour-643b77258"><i class="bi bi-linkedin h5 border p-2"></i></a></li>
+                            <li class="h-100 col-2"><a
+                                    class="w-100 h-100 d-flex align-items-center justify-content-center" href="https://instagram.com/mahsabbpour.web"><i
+                                        class="bi bi-instagram h5 border p-2"></i></a></li>
+                            <li class="h-100 col-2"><a
+                                    class="w-100 h-100 d-flex align-items-center justify-content-center" href="https://github.com/mahsabbpour"><i
+                                        class="bi bi-github h5 border    p-2"></i></a></li>
+                            <li class="h-100 col-2"><a
+                                    class="w-100 h-100 d-flex align-items-center justify-content-center" href="mailto:mahsabbpour.web"><i
+                                        class="bi bi-envelope h5 border border    p-2"></i></a></li>
+                                       
+
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="col-11 col-md-8 show">
+                    <div class="row px-0 mx-0 justify-content-center">
+                        <h4 class="h2 text-center text-light text-capitalize mt-3">show list</h4>
+                        <input class="col-10 mt-4" type="search" placeholder="search">
+                        <div id="list" class="mt-4 col-lg-10 p-3"></div>
+                        <h2 id="description" class="      mt-4 d-flex justify-content-center align-items-center"></h2>
+
+                        <div class="row my-4  px-0 mx-0 justify-content-around">
+                            <button type="button" id="max"       class="btn btn-light col-7 col-md-2 text-capitalize mt-2">max</button>
+                            <button type="button" id="min"       class="btn btn-light col-7 col-md-2 text-capitalize mt-2">min</button>
+                            <button type="button" id="avg"       class="btn btn-light col-7 col-md-2 text-capitalize mt-2">average</button>
+                            <button type="button" id="sort"      class="btn btn-light col-7 col-md-2 text-capitalize mt-2">sort</button>
+                            <button type="button" id="clear" class="btn btn-light col-7 col-md-2     text-capitalize mt-2 ">clear all</button>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    </main>
+
+
+</body>
+<script>
+    let n = 0
+    const data = []
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let des = document.getElementById('description')
+    document.getElementById('add').addEventListener('click', function () {
+        score = this.previousElementSibling.value
+        name = this.previousElementSibling.previousElementSibling.value
+
+
+        this.previousElementSibling.value = null
+        this.previousElementSibling.previousElementSibling.value = null
+        this.previousElementSibling.previousElementSibling.focus()
+
+
+
+
+        const level = {
+            name: name,
+            score: score
+        }
+        data.push(level)
+        // console.log(level);
+        // console.log(data);
+
+        let _name = 'para' +n
+        localStorage.setItem(_name, JSON.stringify(level))
+        generateLi(level , n)
+        n++
+
+
+
+    })
+
+    function generateLi(level) {
+        let _li = document.createElement('li')
+        _li.innerHTML = `
+
+    <div class="row h-100  px-0 mx-0 justify-content-around align-items-center">
+    <h5 class=" col-8"> ${level.name}'s score is :</h5>
+    <h5 class="col-2">${level.score}</h5>
+   
+    </div>
+      
+      `
+        document.getElementById('list').appendChild(_li)
+
+    }
+
+
+    document.getElementById('clear').addEventListener('click', function () {
+        localStorage.clear()
+        n = 0
+        location.reload()
+    })
+
+
+    document.getElementById('max').addEventListener('click', function () {
+        let max = parseFloat(data[0].score)
+        data.map(function (val) {
+            if (
+                (parseFloat(val.score)) > max
+            ) {
+                max = val.score
+            }
+        })
+        if (des.innerHTML != '') {
+            des.innerHTML = ''
+        }
+        des.innerHTML = 'max score is: ' + max
+    })
+    document.getElementById('min').addEventListener('click', function (val) {
+        let min = parseFloat(data[0].score)
+        data.map(function (val) {
+            if (
+                (parseFloat(val.score)) < min
+            ) {
+                min = val.score
+            }
+            if (des.innerHTML != '') {
+                des.innerHTML = ''
+            }
+            des.innerHTML = 'min score is: ' + min
+        })
+
+
+
+    })
+      
+    document.getElementById('avg').addEventListener('click', function () {
+        let avg = 0
+        data.map(function (val) {
+            avg += parseFloat(val.score)
+        })
+        avg = avg /data.length
+        if (des.innerHTML != '') {
+            des.innerHTML = ''
+        }
+        des.innerHTML = 'average score is: ' + avg
+
+    })
+
+    document.getElementById('sort').addEventListener('click', function () {
+        document.getElementById('list').innerHTML = ''
+        for (let s = 1; s <= 100; s++) {
+            data.map(function (val) {
+
+                if (
+                    (val.score < (s + 1)) && (val.score >= s)
+
+                ) {
+                    let _li = document.createElement('li')
+
+                    _li.innerHTML = `
+                    <div class="row px-0 mx-0 justify-content-around align-items-center">
+                    <h5 class=" col-8"> ${val.name}'s score is :</h5>
+                    <h5 class="col-2">${val.score}</h5>
+                    
+                    </div>
+      
+      
+                                    `
+                    document.getElementById('list').appendChild(_li)
+                }
+
+            })
+        }
+    })
+
+</script>
+
+</html>
